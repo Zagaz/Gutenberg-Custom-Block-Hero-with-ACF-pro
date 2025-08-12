@@ -1,0 +1,100 @@
+# --- OS / Editor cruft ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+
+# IDE settings
+.idea/
+.vscode/
+*.code-workspace
+
+# Logs & debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# Dependency directories
+node_modules/
+# If you use Composer for dev tools only, keep vendor/ ignored
+vendor/
+
+# Build / compiled assets (adjust if you commit built assets for deployment)
+/dist/
+/build/
+/assets/build/
+public/build/
+.cache/
+.parcel-cache/
+.next/
+.svelte-kit/
+coverage/
+reports/
+
+# Transpiled or bundled files
+*.map
+
+# WordPress specific
+# Don't commit core or uploads if developing inside a full WP install (not typical here)
+wp-admin/
+wp-includes/
+wp-content/uploads/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+automatic-backups/
+
+# Temporary files
+*.zip
+*.tar
+*.tgz
+*.gz
+
+# Mac metadata
+.AppleDouble
+.LSOverride
+
+# Node / tooling caches
+.eslintcache
+.stylelintcache
+.tsbuildinfo
+.npm/
+.pnp.*
+
+# PHPUnit / PHPStorm / misc
+.phpunit.result.cache
+.php_cs.cache
+
+# Yarn Plug'n'Play
+.pnp.cjs
+.pnp.loader.mjs
+
+# Storybook / Pattern Lab
+storybook-static/
+
+# Sass cache
+.sass-cache/
+
+# Optional: lockfiles (uncomment the ones you intentionally want to ignore)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+# composer.lock
+
+# ACF JSON: KEEP THIS (do NOT ignore) so field groups sync across environments
+# (acf-json folder is intentionally NOT ignored)
+
+# Images optimization temp dirs
+*.tmp.svg
+
+# Misc
+*.iml
