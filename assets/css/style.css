@@ -12,9 +12,10 @@
   width: 100% !important;
   display: flex;
   justify-content: center;
+  background-color: royalblue;
 }
 .acf-hero-wrapper .hero-block {
-  background-color: rgb(53, 92, 5) !important;
+  background-color: rgb(132, 212, 34) !important;
   width: 100% !important;
   max-width: 1600px;
 }
@@ -23,9 +24,10 @@
   width: 100% !important;
   display: flex;
   justify-content: center;
+  background-color: royalblue;
 }
 .wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-hero-wrapper .hero-block {
-  background-color: rgb(53, 92, 5) !important;
+  background-color: rgb(132, 212, 34) !important;
   width: 100% !important;
   max-width: 1600px;
 }/*# sourceMappingURL=style.css.map */
