@@ -37,10 +37,11 @@ function acf_hero_init()
             'enqueue_style'     => plugin_dir_url(__FILE__) . 'assets/css/style.css',
             'enqueue_script'    => plugin_dir_url(__FILE__) . 'assets/js/script.js',
             'supports'          => array(
-             
                 'anchor' => true,
                 'customClassName' => true,
-
+                'align' => true,
+                'alignWide' => true,
+                'alignText' => true,
             ),
         ));
     }

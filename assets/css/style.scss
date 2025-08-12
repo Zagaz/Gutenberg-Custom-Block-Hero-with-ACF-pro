@@ -1,7 +1,48 @@
-*{
+/**
+ * ACF Hero Block Styles
+ * Unified styling for both frontend and editor
+ */
+
+ *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+ }
+
+@mixin editor {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    .hero-block{
+        background-color: rgb(53, 92, 5) !important;
+        width: 100% !important;
+        max-width: 1600px;
+    }
+
+
+
 }
 
+
+
+
+// Frontend
+.acf-hero-wrapper {
+    @include editor();
+
+}
+
+// Backend / Editor
+
+.wp-block-acf-acf-hero {
+    .acf-block-body {
+        .acf-block-preview {
+            .acf-hero-wrapper {
+                @include editor();
+            }
+        }
+
+    }
+}
 

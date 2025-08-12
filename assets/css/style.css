@@ -1,5 +1,31 @@
+/**
+ * ACF Hero Block Styles
+ * Unified styling for both frontend and editor
+ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.acf-hero-wrapper {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+}
+.acf-hero-wrapper .hero-block {
+  background-color: rgb(53, 92, 5) !important;
+  width: 100% !important;
+  max-width: 1600px;
+}
+
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-hero-wrapper {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+}
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-hero-wrapper .hero-block {
+  background-color: rgb(53, 92, 5) !important;
+  width: 100% !important;
+  max-width: 1600px;
 }/*# sourceMappingURL=style.css.map */
