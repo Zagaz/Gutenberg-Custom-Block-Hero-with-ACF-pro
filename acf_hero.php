@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-
-
+// Include ACF field definitions
+require_once plugin_dir_path( __FILE__ ) . 'includes/hero-fields.php';
 
 add_action('acf/init', 'acf_hero_init');
 
@@ -21,7 +21,7 @@ function acf_hero_init() {
     $block_name = 'acf-hero'; // Block name (should be lowercase and without spaces)
     $block_title = 'ACF Hero';
     $block_text_domain = 'acf-block';
-    $block_render_template = 'blocks/testimonial/testimonial.php';
+    $block_render_template = 'blocks/hero/hero.php';
 
     if ( function_exists( 'acf_register_block_type' ) ) {
         acf_register_block_type( array(
