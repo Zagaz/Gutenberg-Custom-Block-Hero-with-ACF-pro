@@ -1,5 +1,4 @@
-[
-    {
+{
         "key": "group_689b72e47a74f",
         "title": "hero",
         "fields": [
@@ -285,5 +284,4 @@
         "active": true,
         "description": "",
         "show_in_rest": 0
-    }
-]
+}

@@ -24,11 +24,16 @@ if( !empty($block['align']) ) {
 }
 
 // Load field values
-$title = get_field('hero_title');
-$subtitle = get_field('hero_subtitle');
-$description = get_field('hero_description');
-$bg = get_field('bg');
-$cta = get_field('cta');
+$title = get_field('hero_title') ? get_field('hero_title') : "My Title";
+$subtitle = get_field('hero_subtitle') ? get_field('hero_subtitle') : "My Subtitle";
+$description = get_field('hero_description') ? get_field('hero_description') : "My Description";
+$bg = get_field('bg') ? get_field('bg') : "";
+$cta = get_field('cta') ? get_field('cta') : "";
+
+// Block
+
+$block_name = 'acf-hero'; // Block name (should be lowercase and without spaces)
+
 
 // Background style
 $style = '';
@@ -47,26 +52,28 @@ if(!empty($cta['cta_bg_color'])) {
 if(!empty($cta['cta_text_color'])) {
     $cta_style .= 'color: ' . $cta['cta_text_color'] . '; ';
 }
+
+
 ?>
 
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($classes); ?>" style="<?php echo esc_attr($style); ?>">
-    <div class="hero-content">
+    <div class="hero-content <?php echo esc_attr($block_align); ?>">
         <?php if($title): ?>
-            <h2 class="hero-title"><?php echo esc_html($title); ?></h2>
+            <h2 class="<?php echo esc_attr($block_name); ?>-title"><?php echo esc_html($title); ?></h2>
         <?php endif; ?>
         
         <?php if($subtitle): ?>
-            <h3 class="hero-subtitle"><?php echo esc_html($subtitle); ?></h3>
+            <h3 class="<?php echo esc_attr($block_name); ?>-subtitle"><?php echo esc_html($subtitle); ?></h3>
         <?php endif; ?>
         
         <?php if($description): ?>
-            <div class="hero-description">
+            <div class="<?php echo esc_attr($block_name); ?>-description">
                 <?php echo wp_kses_post($description); ?>
             </div>
         <?php endif; ?>
         
         <?php if(!empty($cta['cta_link']) && !empty($cta['cta_text'])): ?>
-            <a href="<?php echo esc_url($cta['cta_link']); ?>" class="hero-cta-button" style="<?php echo esc_attr($cta_style); ?>">
+            <a href="<?php echo esc_url($cta['cta_link']); ?>" class="<?php echo esc_attr($block_name); ?>-cta-button" style="<?php echo esc_attr($cta_style); ?>">
                 <?php echo esc_html($cta['cta_text']); ?>
             </a>
         <?php endif; ?>
