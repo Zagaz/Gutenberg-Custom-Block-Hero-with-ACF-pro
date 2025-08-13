@@ -38,11 +38,11 @@ if( !empty($block['align']) ) {
 }
 
 // Load field values
-$title = get_field('hero_title') ? get_field('hero_title') : "My Title";
-$subtitle = get_field('hero_subtitle') ? get_field('hero_subtitle') : "My Subtitle";
-$description = get_field('hero_description') ? get_field('hero_description') : "My Description";
-$bg = get_field('bg') ? get_field('bg') : "";
-$cta = get_field('cta') ? get_field('cta') : "";
+$title       = get_field('hero_title') ? get_field('hero_title') : "";
+$subtitle    = get_field('hero_subtitle') ? get_field('hero_subtitle') : "";
+$description = get_field('hero_description') ? get_field('hero_description') : "";
+$bg          = get_field('bg') ? get_field('bg') : "";
+$cta         = get_field('cta') ? get_field('cta') : "";
 
 
 // Background style
