@@ -4,8 +4,18 @@
 @use '../abstract/variables' as var;
 @use '../abstract/mixins' as mixins;
 
+@mixin cta($pt, $pr, $pb, $pl, $br, $decoration) {
+    padding-top: $pt;
+    padding-right: $pr;
+    padding-bottom: $pb;
+    padding-left: $pl;
+    border-radius: $br;
+    text-decoration: none;
+
+}
+
 .hero-block {
-    background-color: var.$color-bg;
+    // background-color: var.$color-bg;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -22,17 +32,25 @@
         flex-direction: column;
         align-items: center;
         flex-wrap: nowrap;
+
         .acf-hero-title {
 
             @include mixins.content(3rem, bold, 20px);
         }
+
         .acf-hero-subtitle {
 
             @include mixins.content(2rem, normal, 20px);
         }
+
         .acf-hero-description {
 
             @include mixins.content(1rem, normal, 20px);
+        }
+
+        .acf-hero-cta-button {
+            @include cta(10px, 20px, 10px, 20px, 5px, none);
+            @include mixins.content(1rem, bold, 0);
         }
     }
 }
