@@ -47,6 +47,8 @@
         .acf-hero-title {
             @include mixins.content(3rem, bold, 20px);
             @include mixins.dynamic-text-color;
+            // text align center
+           
         }
 
         .acf-hero-subtitle {
@@ -54,9 +56,10 @@
             @include mixins.content(2rem, normal, 20px);
             @include mixins.dynamic-text-color;
         }
-
+        
         .acf-hero-description {
-
+            
+            text-align: center;
             @include mixins.content(1rem, normal, 20px);
             @include mixins.dynamic-text-color;
         }

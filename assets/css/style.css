@@ -70,6 +70,7 @@
   color: var(--text-color, #000);
 }
 .hero-block .hero-content .acf-hero-description {
+  text-align: center;
   font-size: 1rem;
   font-weight: normal;
   margin-bottom: 20px;
