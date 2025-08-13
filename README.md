@@ -2,22 +2,23 @@
 # Gutenberg Custom Block Hero with ACF pro
  ## Description
 
-This project is a custom WordPress block that creates dynamic hero section with data using Advanced Custom Fields (ACF) Pro. It has the options to customize the background:
-- **Color**- Plain color;
-- **Image**- Choose a image;
-- **YouTube**- Just get the URL of a YouTube video. And choose the options:
+This project provides a custom WordPress block for creating a dynamic hero section using Advanced Custom Fields (ACF) Pro. The block offers flexible background options:
 
-	▶️ Autoplay \
-	🔁 Loop video\
-	🔇 Mute video
+- **Color** – Set a solid background color.
+- **Image** – Select an image as the background.
+- **YouTube** – Enter a YouTube video URL and configure options:
+    - ▶️ Autoplay
+    - 🔁 Loop video
+    - 🔇 Mute video
 
-Also, you can customize:
+You can also customize the following content:
+
 - **Title**
 - **Subtitle**
 - **Description**
-- **Link Button**
+- **Link Button** (customize background color, URL, and text color)
 
-The link Button can be customized: The backgrond, the url and text color 
+This allows you to build visually engaging hero sections tailored to your site's needs.
 ## Requirements
 
 - **WordPress** (latest version recommended)
