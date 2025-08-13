@@ -29,7 +29,23 @@
   justify-content: center;
   height: -moz-fit-content;
   height: fit-content;
-  min-height: 300px;
+  height: 100vw;
+  padding: 30px;
+}
+@media (min-width: 450px) {
+  .hero-block {
+    height: 50vh;
+  }
+}
+@media (min-width: 768px) {
+  .hero-block {
+    height: 70vh;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-block {
+    height: 80vh;
+  }
 }
 .hero-block .hero-content {
   max-width: 800px;
