@@ -21,13 +21,14 @@
             z-index: 1 !important; /* Ensure visible but behind content */
             
             iframe {
-                min-width: 300% !important; /* Extra wide to prevent cutting in editor */
-                width: 300% !important;
-                height: auto !important;
-                min-height: 300% !important;
+                width: 100vw !important;
+                height: 56.25vw !important; /* 16:9 aspect ratio */
+                min-height: 100% !important;
                 top: 50% !important;
                 left: 50% !important;
                 transform: translate(-50%, -50%) !important;
+                object-fit: cover !important; /* Fill the container */
+                max-width: none !important; /* Remove any max-width constraints */
             }
         }
         

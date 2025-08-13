@@ -110,6 +110,8 @@ if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id))
                 position: absolute;
                 top: 0;
                 left: 0;
+                right: 0; 
+                bottom: 0;
                 width: 100%;
                 height: 100%;
                 z-index: 1; /* Just behind content but still visible */
@@ -120,6 +122,8 @@ if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id))
                 position: absolute;
                 top: 0;
                 left: 0;
+                right: 0;
+                bottom: 0;
                 width: 100%;
                 height: 100%;
                 overflow: hidden;
@@ -129,8 +133,11 @@ if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id))
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                min-width: 150%;
-                min-height: 150%;
+                width: 100vw; /* Full viewport width */
+                height: 56.25vw; /* Maintain 16:9 aspect ratio */
+                min-height: 100%; /* Ensure it covers the full height */
+                object-fit: cover; /* Fill the container completely */
+                max-width: none;
             }
             .acf-hero-wrapper {
                 position: relative;

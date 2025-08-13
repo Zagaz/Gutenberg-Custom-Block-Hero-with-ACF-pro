@@ -32,20 +32,23 @@
                 // Standard video ratio is 16:9 = 1.77
                 const videoRatio = 16/9;
                 
-                // Scale factor - much larger in editor to prevent cutting
-                const scaleFactor = isEditor ? 3.0 : 1.5;
-                
-                // Always make video large enough to cover the container
+                // We want the video to fill the width completely
+                // and maintain aspect ratio by adjusting height
                 let width, height;
                 
-                if (wrapperRatio > videoRatio) {
-                    // Container is wider than video aspect ratio
-                    width = wrapperWidth * scaleFactor;
-                    height = width * (9/16);
-                } else {
-                    // Container is taller than video aspect ratio
-                    height = wrapperHeight * scaleFactor;
-                    width = height * (16/9);
+                // Always use the full width
+                width = Math.max(wrapperWidth, window.innerWidth);
+                
+                // Calculate height based on 16:9 aspect ratio
+                height = width * (9/16); // 16:9 ratio
+                
+                // Make sure height is at least as tall as the wrapper
+                if (height < wrapperHeight) {
+                    height = wrapperHeight;
+                    // Recalculate width to maintain aspect ratio
+                    // but ensure it's still at least the wrapper width
+                    const newWidth = height * (16/9);
+                    width = Math.max(newWidth, wrapperWidth);
                 }
                 
                 // Apply the calculated dimensions
@@ -62,10 +65,14 @@
                 iframe.style.visibility = 'visible';
                 iframe.style.opacity = '1';
                 
-                // Force a slightly different styling in editor
+                // Use object-fit: cover to fill the container
+                iframe.style.objectFit = 'cover';
+                
+                // In editor, make sure to use the same approach but larger dimensions
                 if (isEditor) {
-                    iframe.style.minWidth = '300%';
-                    iframe.style.minHeight = '300%';
+                    iframe.style.width = (width * 1.1) + 'px'; // Slightly wider in editor
+                    iframe.style.height = (height * 1.1) + 'px';
+                    iframe.style.objectFit = 'cover';
                 }
                 
                 // Ensure parent containers are visible
