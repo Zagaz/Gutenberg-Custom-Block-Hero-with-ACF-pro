@@ -16,6 +16,7 @@
 
 .hero-block {
     // background-color: var.$color-bg;
+
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -23,6 +24,8 @@
     justify-content: center;
     height: fit-content;
     min-height: 300px;
+
+
 
     .hero-content {
         max-width: var.$content-max-width;
@@ -33,18 +36,20 @@
         flex-wrap: nowrap;
 
         .acf-hero-title {
-
             @include mixins.content(3rem, bold, 20px);
+            @include mixins.dynamic-text-color;
         }
 
         .acf-hero-subtitle {
 
             @include mixins.content(2rem, normal, 20px);
+            @include mixins.dynamic-text-color;
         }
 
         .acf-hero-description {
 
             @include mixins.content(1rem, normal, 20px);
+            @include mixins.dynamic-text-color;
         }
 
         .acf-hero-cta-button {

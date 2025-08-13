@@ -47,11 +47,17 @@ $cta         = get_field('cta') ? get_field('cta') : "";
 
 // Background style
 $style = '';
+$text_color_var = '';
 if($bg['bg_type'] === 'Color' && !empty($bg['bg_color'])) {
     $style = 'background-color: ' . $bg['bg_color'] . ';';
+    // Add CSS variable for text color calculation
+    $text_color_var = '--text-color: ' . calculate_contrast_color($bg['bg_color']) . ';';
+    $style .= $text_color_var;
 } else if($bg['bg_type'] === 'Image' && !empty($bg['bg_img'])) {
     $image = wp_get_attachment_image_url($bg['bg_img'], 'large');
     $style = 'background-image: url(' . esc_url($image) . '); background-size: cover; background-position: center;';
+    // Default text color for images
+    $style .= '--text-color: #ffffff;';
 }
 
 // CTA style

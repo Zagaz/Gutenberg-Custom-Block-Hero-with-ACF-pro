@@ -8,10 +8,21 @@
        height: max-content;
     display: flex;
     justify-content: center;
+    // make a darker layer for text contrast
+
+
+ 
+  
 }
 
 @mixin content($size, $weight, $marginButton) {
     font-size: $size;
     font-weight: $weight;
     margin-bottom: $marginButton;
+}
+
+// Dynamic text color based on background contrast
+@mixin dynamic-text-color {
+    /* Using CSS custom properties set in PHP */
+    color: var(--text-color, #000);
 }
