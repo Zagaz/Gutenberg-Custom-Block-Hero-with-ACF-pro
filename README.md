@@ -3,12 +3,12 @@
  ## Description
 
 This project is a custom WordPress block that creates dynamic hero section with data using Advanced Custom Fields (ACF) Pro. It has the options to customize the background:
-- **Color -** Plain color;
+- **Color ** Plain color;
 - **Image **- Choose a image;
 - **YouTube **- Just get the URL of a YouTube video. And choose the options:
-	:tw-25b6: Autoplay
-	:tw-1f504: Loop video
-	:tw-1f507: Mute video.
+	▶️ Autoplay
+	🔁 Loop video
+	🔇 Mute video.
 ## Requirements
 
 - **WordPress** (latest version recommended)
