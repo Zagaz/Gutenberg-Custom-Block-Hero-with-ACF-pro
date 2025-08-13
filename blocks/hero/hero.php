@@ -78,12 +78,9 @@ if($bg['bg_type'] === 'Color' && !empty($bg['bg_color'])) {
     $style = 'background-color: #000000; position: relative; overflow: hidden;';
     // Default text color for video backgrounds
     $style .= '--text-color: #ffffff;';
-    // Add a data attribute for potential JS enhancement
+    // Add a data attribute for JS enhancement
     $youtube_data = ' data-youtube-id="' . esc_attr($youtube_id) . '"';
 }
-
-//echo $style;
-
 
 
 // CTA style
