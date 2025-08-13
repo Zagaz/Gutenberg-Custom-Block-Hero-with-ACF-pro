@@ -44,7 +44,6 @@ $description = get_field('hero_description') ? get_field('hero_description') : "
 $bg          = get_field('bg') ? get_field('bg') : "";
 $cta         = get_field('cta') ? get_field('cta') : "";
 
-
 // Background video settings
 // Safely get YouTube settings with fallbacks
 $yt_url       = isset($bg["bg_yt"]['video_link']) ? $bg["bg_yt"]['video_link'] : 'https://www.youtube.com/watch?v=-niUBSx3PKQ';
@@ -60,8 +59,8 @@ if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($yt_url)) {
     $youtube_id = isset($matches[1]) ? $matches[1] : '';
 }
 
-
 // Background style
+//Starts blank and will be populated accordingly.
 $style = '';
 $text_color_var = '';
 if($bg['bg_type'] === 'Color' && !empty($bg['bg_color'])) {
@@ -82,6 +81,8 @@ if($bg['bg_type'] === 'Color' && !empty($bg['bg_color'])) {
     // Add a data attribute for potential JS enhancement
     $youtube_data = ' data-youtube-id="' . esc_attr($youtube_id) . '"';
 }
+
+//echo $style;
 
 
 
@@ -104,19 +105,7 @@ $youtube_data = isset($youtube_data) ? $youtube_data : '';
         <div class="video-foreground">
             <iframe 
                 <?php // Autoplay, Loop, Mute will be called on the GET method?>
-                src="https://www.youtube.com/embed/<?php echo esc_attr($youtube_id); ?>?
-                rel=0
-                &showinfo=0
-                &autoplay=<?php echo $is_autoplay ? '1' : '0'; ?>
-                &loop=<?php echo $is_loop ? '1' : '0'; ?>
-                &mute=<?php echo $is_muted ? '1' : '0'; ?>
-                &controls=0
-                &disablekb=1
-                &playlist=<?php echo esc_attr($youtube_id); ?>
-                &enablejsapi=1
-                &widgetid=1
-                &modestbranding=1
-                &playsinline=1"
+                src="https://www.youtube.com/embed/<?php echo esc_attr($youtube_id); ?>?rel=0&showinfo=0&autoplay=<?php echo $is_autoplay ? '1' : '0'; ?>&loop=<?php echo $is_loop ? '1' : '0'; ?>&mute=<?php echo $is_muted ? '1' : '0'; ?>&controls=0&disablekb=1&playlist=<?php echo esc_attr($youtube_id); ?>&enablejsapi=1&widgetid=1&modestbranding=1&playsinline=1"
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
