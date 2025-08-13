@@ -45,6 +45,22 @@ $bg          = get_field('bg') ? get_field('bg') : "";
 $cta         = get_field('cta') ? get_field('cta') : "";
 
 
+// Background video settings
+// Safely get YouTube settings with fallbacks
+$yt_url       = isset($bg["bg_yt"]['video_link']) ? $bg["bg_yt"]['video_link'] : 'https://www.youtube.com/watch?v=-niUBSx3PKQ';
+$is_autoplay  = isset($bg["bg_yt"]["autoplay"]) ? $bg["bg_yt"]["autoplay"] : true;
+$is_loop      = isset($bg["bg_yt"]["loop"]) ? $bg["bg_yt"]["loop"] : true;
+$is_muted     = isset($bg["bg_yt"]["mute"]) ? $bg["bg_yt"]["mute"] : true;
+
+// Extract YouTube video ID
+$youtube_id = '';
+if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($yt_url)) {
+    // Extract YouTube ID using regex pattern for various YouTube URL formats
+    preg_match('/(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $yt_url, $matches);
+    $youtube_id = isset($matches[1]) ? $matches[1] : '';
+}
+
+
 // Background style
 $style = '';
 $text_color_var = '';
@@ -58,7 +74,16 @@ if($bg['bg_type'] === 'Color' && !empty($bg['bg_color'])) {
     $style = 'background-image: url(' . esc_url($image) . '); background-size: cover; background-position: center;';
     // Default text color for images
     $style .= '--text-color: #ffffff;';
+} else if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id)) {
+    // Set a dark background color as fallback
+    $style = 'background-color: #000000; position: relative; overflow: hidden;';
+    // Default text color for video backgrounds
+    $style .= '--text-color: #ffffff;';
+    // Add a data attribute for potential JS enhancement
+    $youtube_data = ' data-youtube-id="' . esc_attr($youtube_id) . '"';
 }
+
+
 
 // CTA style
 $cta_style = '';
@@ -70,8 +95,59 @@ if(!empty($cta['cta_text_color'])) {
 }
 
 
+// Initialize youtube_data variable if not set
+$youtube_data = isset($youtube_data) ? $youtube_data : '';
+
+// Add minimal inline styles for YouTube background if needed
+$youtube_inline_styles = '';
+if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id)) {
+    $youtube_inline_styles = '
+        <style>
+            .youtube-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                pointer-events: none;
+                overflow: hidden;
+            }
+            .video-foreground, 
+            .video-foreground iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .acf-hero-wrapper {
+                position: relative;
+                overflow: hidden;
+                min-height: 400px;
+            }
+            .hero-content {
+                position: relative;
+                z-index: 2;
+            }
+        </style>
+    ';
+}
+echo $youtube_inline_styles;
 ?>
-<div class="<?php echo esc_attr($block_name); ?>-wrapper<?php echo esc_attr($is_editor); ?>" style="<?php echo esc_attr($style); ?>">
+<div class="<?php echo esc_attr($block_name); ?>-wrapper<?php echo esc_attr($is_editor); ?>"<?php echo $youtube_data; ?> style="<?php echo esc_attr($style); ?>">
+    <?php if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id)): ?>
+    <div class="youtube-background">
+        <div class="video-foreground">
+            <iframe 
+                src="https://www.youtube.com/embed/<?php echo esc_attr($youtube_id); ?>?rel=0&showinfo=0&autoplay=<?php echo $is_autoplay ? '1' : '0'; ?>&loop=<?php echo $is_loop ? '1' : '0'; ?>&mute=<?php echo $is_muted ? '1' : '0'; ?>&controls=0&disablekb=1&playlist=<?php echo esc_attr($youtube_id); ?>&enablejsapi=1&widgetid=1&modestbranding=1&playsinline=1"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <?php endif; ?>
     <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($classes); ?>" >
         <div class="hero-content <?php echo esc_attr($block_align); ?><?php echo esc_attr($preview_class); ?>">
             <?php if($title): ?>
