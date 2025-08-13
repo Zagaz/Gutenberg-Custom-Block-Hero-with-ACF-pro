@@ -97,69 +97,6 @@ if(!empty($cta['cta_text_color'])) {
 
 // Initialize youtube_data variable if not set
 $youtube_data = isset($youtube_data) ? $youtube_data : '';
-
-// Add minimal inline styles for YouTube background if needed
-$youtube_inline_styles = '';
-if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id)) {
-    // Check if we're in the editor
-    $is_admin_editor = is_admin();
-    
-    $youtube_inline_styles = '
-        <style>
-            .youtube-background {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0; 
-                bottom: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 1; /* Just behind content but still visible */
-                pointer-events: none;
-                overflow: hidden;
-            }
-            .video-foreground {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-            }
-            .video-foreground iframe {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 100vw; /* Full viewport width */
-                height: 56.25vw; /* Maintain 16:9 aspect ratio */
-                min-height: 100%; /* Ensure it covers the full height */
-                object-fit: cover; /* Fill the container completely */
-                max-width: none;
-            }
-            .acf-hero-wrapper {
-                position: relative;
-                overflow: hidden;
-                min-height: 400px;
-            }
-            .hero-content {
-                position: relative;
-                z-index: 2; /* Just above video */
-            }
-            
-            /* WordPress editor specific tweaks */
-            .is-editor .youtube-background iframe,
-            .wp-admin .youtube-background iframe,
-            .block-editor-block-list__layout .youtube-background iframe {
-                min-width: 300% !important;
-                min-height: 300% !important;
-            }
-        </style>
-    ';
-}
-echo $youtube_inline_styles;
 ?>
 <div class="<?php echo esc_attr($block_name); ?>-wrapper<?php echo esc_attr($is_editor); ?>"<?php echo $youtube_data; ?> style="<?php echo esc_attr($style); ?>">
     <?php if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id)): ?>

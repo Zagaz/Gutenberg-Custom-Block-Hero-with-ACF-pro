@@ -98,6 +98,18 @@
   pointer-events: none; /* Makes the video non-interactive */
   overflow: hidden;
   display: block;
+}
+
+/* Video foreground container */
+.video-foreground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 } /* This ensures content stays on top of the video */
 .hero-content {
   position: relative;
