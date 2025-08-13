@@ -1,0 +1,72 @@
+/**
+ * Editor-specific styles for YouTube video backgrounds
+ * These styles apply only in the WordPress editor environment
+ */
+
+/* WordPress editor specific adjustments */
+.edit-post-visual-editor,
+.block-editor-block-list__layout,
+.wp-admin-editor,
+.wp-admin {
+    .acf-hero-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden;
+        
+        .youtube-background {
+            width: 100%;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            z-index: 1 !important; /* Ensure visible but behind content */
+            
+            iframe {
+                min-width: 300% !important; /* Extra wide to prevent cutting in editor */
+                width: 300% !important;
+                height: auto !important;
+                min-height: 300% !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+            }
+        }
+        
+        /* Add a subtle overlay to help with visibility in editor */
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1); /* Lighter overlay */
+            z-index: 1; /* Between video and content */
+            pointer-events: none;
+        }
+        
+        /* Ensure content remains on top */
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Just above video */
+        }
+    }
+}
+
+/* Fix for the block editor context */
+.wp-block .acf-hero-wrapper,
+.block-editor .acf-hero-wrapper,
+.editor-styles-wrapper .acf-hero-wrapper {
+    width: 100% !important;
+    overflow: hidden !important;
+    
+    .youtube-background {
+        overflow: hidden !important;
+        
+        iframe {
+            width: 300% !important;
+            min-width: 300% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+        }
+    }
+}

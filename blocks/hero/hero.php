@@ -101,6 +101,9 @@ $youtube_data = isset($youtube_data) ? $youtube_data : '';
 // Add minimal inline styles for YouTube background if needed
 $youtube_inline_styles = '';
 if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id)) {
+    // Check if we're in the editor
+    $is_admin_editor = is_admin();
+    
     $youtube_inline_styles = '
         <style>
             .youtube-background {
@@ -109,17 +112,25 @@ if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id))
                 left: 0;
                 width: 100%;
                 height: 100%;
-                z-index: 1;
+                z-index: 1; /* Just behind content but still visible */
                 pointer-events: none;
                 overflow: hidden;
             }
-            .video-foreground, 
-            .video-foreground iframe {
+            .video-foreground {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
+                overflow: hidden;
+            }
+            .video-foreground iframe {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                min-width: 150%;
+                min-height: 150%;
             }
             .acf-hero-wrapper {
                 position: relative;
@@ -128,7 +139,15 @@ if(isset($bg['bg_type']) && $bg['bg_type'] === 'YouTube' && !empty($youtube_id))
             }
             .hero-content {
                 position: relative;
-                z-index: 2;
+                z-index: 2; /* Just above video */
+            }
+            
+            /* WordPress editor specific tweaks */
+            .is-editor .youtube-background iframe,
+            .wp-admin .youtube-background iframe,
+            .block-editor-block-list__layout .youtube-background iframe {
+                min-width: 300% !important;
+                min-height: 300% !important;
             }
         </style>
     ';
