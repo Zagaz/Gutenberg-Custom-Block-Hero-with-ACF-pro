@@ -10,6 +10,6 @@
 @use 'abstract/mixins';
 
 // Components
-@use 'components/hero-block';
+@use 'components/hero-block'; //Here is where the magic happens!
 @use 'components/frontend';
-@use 'components/editor';
+@use 'components/editor'; 

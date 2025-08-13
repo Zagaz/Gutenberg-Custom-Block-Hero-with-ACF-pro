@@ -5,7 +5,13 @@
 // Editor mixin for shared styling between frontend and editor
 @mixin editor {
     width: 100% !important;
-    height: 300px;
+       height: max-content;
     display: flex;
     justify-content: center;
+}
+
+@mixin content($size, $weight, $marginButton) {
+    font-size: $size;
+    font-weight: $weight;
+    margin-bottom: $marginButton;
 }

@@ -24,17 +24,37 @@
 .hero-block {
   background-color: red;
   width: 100%;
-  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 300px;
 }
 .hero-block .hero-content {
+  max-width: 800px;
+  width: 100%;
+  background-color: aqua;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: nowrap;
+}
+.hero-block .hero-content .acf-hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.hero-block .hero-content .acf-hero-subtitle {
+  font-size: 2rem;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+.hero-block .hero-content .acf-hero-description {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 20px;
 }
 
 /**
@@ -42,7 +62,8 @@
  */
 .acf-hero-wrapper {
   width: 100% !important;
-  height: 300px;
+  height: -moz-max-content;
+  height: max-content;
   display: flex;
   justify-content: center;
 }
@@ -52,7 +73,8 @@
  */
 .wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-hero-wrapper {
   width: 100% !important;
-  height: 300px;
+  height: -moz-max-content;
+  height: max-content;
   display: flex;
   justify-content: center;
 }/*# sourceMappingURL=style.css.map */

@@ -2,20 +2,37 @@
  * Hero Block Component
  */
 @use '../abstract/variables' as var;
+@use '../abstract/mixins' as mixins;
 
 .hero-block {
     background-color: var.$color-bg;
     width: 100%;
-    max-width: var.$max-width;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: fit-content;
+    min-height: 300px;
 
     .hero-content {
+        max-width: var.$content-max-width;
+        width: 100%;
+        background-color: aqua;
         display: flex;
         flex-direction: column;
         align-items: center;
         flex-wrap: nowrap;
+        .acf-hero-title {
+
+            @include mixins.content(3rem, bold, 20px);
+        }
+        .acf-hero-subtitle {
+
+            @include mixins.content(2rem, normal, 20px);
+        }
+        .acf-hero-description {
+
+            @include mixins.content(1rem, normal, 20px);
+        }
     }
 }
