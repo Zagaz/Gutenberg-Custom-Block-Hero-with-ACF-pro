@@ -104,7 +104,9 @@ $youtube_data = isset($youtube_data) ? $youtube_data : '';
         <div class="video-foreground">
             <iframe 
                 <?php // Autoplay, Loop, Mute will be called on the GET method?>
-                src="https://www.youtube.com/embed/<?php echo esc_attr($youtube_id); ?>?rel=0&showinfo=0
+                src="https://www.youtube.com/embed/<?php echo esc_attr($youtube_id); ?>?
+                rel=0
+                &showinfo=0
                 &autoplay=<?php echo $is_autoplay ? '1' : '0'; ?>
                 &loop=<?php echo $is_loop ? '1' : '0'; ?>
                 &mute=<?php echo $is_muted ? '1' : '0'; ?>
