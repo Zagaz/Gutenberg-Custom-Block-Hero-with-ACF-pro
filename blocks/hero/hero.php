@@ -65,8 +65,8 @@ if(!empty($cta['cta_text_color'])) {
 
 
 ?>
-<div class="<?php echo esc_attr($block_name); ?>-wrapper<?php echo esc_attr($is_editor); ?>">
-    <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($classes); ?>" style="<?php echo esc_attr($style); ?>">
+<div class="<?php echo esc_attr($block_name); ?>-wrapper<?php echo esc_attr($is_editor); ?>" style="<?php echo esc_attr($style); ?>">
+    <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($classes); ?>" >
         <div class="hero-content <?php echo esc_attr($block_align); ?><?php echo esc_attr($preview_class); ?>">
             <?php if($title): ?>
                 <h2 class="<?php echo esc_attr($block_name); ?>-title"><?php echo esc_html($title); ?></h2>

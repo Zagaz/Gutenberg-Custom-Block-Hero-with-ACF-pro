@@ -3,30 +3,38 @@
  * Unified styling for both frontend and editor
  */
 
- *{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
- }
+}
 
 @mixin editor {
     width: 100% !important;
+    height: 300px;
     display: flex;
     justify-content: center;
-    background-color: royalblue;
-    .hero-block{
-        background-color: rgb(132, 212, 34) !important;
-        width: 100% !important;
-        max-width: 1600px;
+
+    .hero-block {
+        background-color: red;
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
     }
 
-
-
 }
-
-
-
 
 // Frontend
 .acf-hero-wrapper {
@@ -46,4 +54,3 @@
 
     }
 }
-
