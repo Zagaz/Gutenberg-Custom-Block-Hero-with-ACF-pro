@@ -1,6 +1,10 @@
 /**
  * ACF Hero Block Styles
  * Unified styling for both frontend and editor
+ * Component-based structure
+ */
+/**
+ * Reset
  */
 * {
   margin: 0;
@@ -8,13 +12,16 @@
   box-sizing: border-box;
 }
 
-.acf-hero-wrapper {
-  width: 100% !important;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-}
-.acf-hero-wrapper .hero-block {
+/**
+ * Variables
+ */
+/**
+ * Mixins
+ */
+/**
+ * Hero Block Component
+ */
+.hero-block {
   background-color: red;
   width: 100%;
   max-width: 800px;
@@ -23,31 +30,29 @@
   align-items: center;
   justify-content: center;
 }
-.acf-hero-wrapper .hero-block .hero-content {
+.hero-block .hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: nowrap;
 }
 
-.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-hero-wrapper {
+/**
+ * Frontend Wrapper
+ */
+.acf-hero-wrapper {
   width: 100% !important;
   height: 300px;
   display: flex;
   justify-content: center;
 }
-.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-hero-wrapper .hero-block {
-  background-color: red;
-  width: 100%;
-  max-width: 800px;
+
+/**
+ * Editor Wrapper
+ */
+.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-hero-wrapper {
+  width: 100% !important;
+  height: 300px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-}
-.wp-block-acf-acf-hero .acf-block-body .acf-block-preview .acf-hero-wrapper .hero-block .hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap;
 }/*# sourceMappingURL=style.css.map */

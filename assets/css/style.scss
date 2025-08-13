@@ -1,56 +1,15 @@
 /**
  * ACF Hero Block Styles
  * Unified styling for both frontend and editor
+ * Component-based structure
  */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// Abstract
+@use 'abstract/reset';
+@use 'abstract/variables';
+@use 'abstract/mixins';
 
-}
-
-@mixin editor {
-    width: 100% !important;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-
-    .hero-block {
-        background-color: red;
-        width: 100%;
-        max-width: 800px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-wrap: nowrap;
-        }
-
-    }
-
-}
-
-// Frontend
-.acf-hero-wrapper {
-    @include editor();
-
-}
-
-// Backend / Editor
-
-.wp-block-acf-acf-hero {
-    .acf-block-body {
-        .acf-block-preview {
-            .acf-hero-wrapper {
-                @include editor();
-            }
-        }
-
-    }
-}
+// Components
+@use 'components/hero-block';
+@use 'components/frontend';
+@use 'components/editor';

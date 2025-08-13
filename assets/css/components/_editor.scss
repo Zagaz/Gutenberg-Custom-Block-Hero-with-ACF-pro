@@ -1,0 +1,15 @@
+/**
+ * Editor Wrapper
+ */
+@use '../abstract/mixins' as mix;
+@use '../components/hero-block';
+
+.wp-block-acf-acf-hero {
+    .acf-block-body {
+        .acf-block-preview {
+            .acf-hero-wrapper {
+                @include mix.editor();
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+/**
+ * Frontend Wrapper
+ */
+@use '../abstract/mixins' as mix;
+@use '../components/hero-block';
+
+.acf-hero-wrapper {
+    @include mix.editor();
+}
