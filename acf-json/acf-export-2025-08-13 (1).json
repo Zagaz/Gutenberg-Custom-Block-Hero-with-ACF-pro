@@ -1,4 +1,5 @@
-{
+[
+    {
         "key": "group_689b72e47a74f",
         "title": "hero",
         "fields": [
@@ -171,8 +172,8 @@
                         "preview_size": "medium"
                     },
                     {
-                        "key": "field_youtube_settings",
-                        "label": "YouTube Video Settings",
+                        "key": "field_689cbd03a14fe",
+                        "label": "Background YouTube",
                         "name": "bg_yt",
                         "aria-label": "",
                         "type": "group",
@@ -195,12 +196,12 @@
                         "layout": "block",
                         "sub_fields": [
                             {
-                                "key": "field_youtube_url",
+                                "key": "field_689cc11f70947",
                                 "label": "Video Link",
                                 "name": "video_link",
                                 "aria-label": "",
                                 "type": "url",
-                                "instructions": "Enter a YouTube video URL",
+                                "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -208,16 +209,17 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "default_value": "https://www.youtube.com/watch?v=-niUBSx3PKQ",
-                                "placeholder": "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+                                "default_value": "https:\/\/www.youtube.com\/watch?v=-niUBSx3PKQ",
+                                "allow_in_bindings": 0,
+                                "placeholder": ""
                             },
                             {
-                                "key": "field_youtube_autoplay",
+                                "key": "field_689cc13b70948",
                                 "label": "Autoplay",
                                 "name": "autoplay",
                                 "aria-label": "",
                                 "type": "true_false",
-                                "instructions": "Start playing the video automatically",
+                                "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -225,17 +227,20 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "message": "",
+                                "message": "Play videos automatically?",
                                 "default_value": 1,
-                                "ui": 1
+                                "allow_in_bindings": 1,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
                             },
                             {
-                                "key": "field_youtube_loop",
+                                "key": "field_689cc25177903",
                                 "label": "Loop",
                                 "name": "loop",
                                 "aria-label": "",
                                 "type": "true_false",
-                                "instructions": "Loop the video",
+                                "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -243,17 +248,20 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "message": "",
+                                "message": "Keep videos playing in a loop?",
                                 "default_value": 1,
-                                "ui": 1
+                                "allow_in_bindings": 1,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
                             },
                             {
-                                "key": "field_youtube_mute",
+                                "key": "field_689cc3269b92e",
                                 "label": "Mute",
                                 "name": "mute",
                                 "aria-label": "",
                                 "type": "true_false",
-                                "instructions": "Mute the video sound",
+                                "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -261,9 +269,12 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "message": "",
+                                "message": "Keep videos muted?",
                                 "default_value": 1,
-                                "ui": 1
+                                "allow_in_bindings": 1,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
                             }
                         ]
                     }
@@ -382,4 +393,5 @@
         "active": true,
         "description": "",
         "show_in_rest": 0
-}
+    }
+]

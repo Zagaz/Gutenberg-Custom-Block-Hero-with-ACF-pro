@@ -1,0 +1,100 @@
+/**
+ * YouTube Background Component
+ */
+
+.acf-hero-wrapper {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px; /* Adjust as needed */
+    width: 100%;
+    max-width: 100vw; /* Ensure it spans the full viewport width */
+    display: flex;
+    flex-direction: column;
+}
+
+/* YouTube background should be behind the content */
+.youtube-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: 1; /* Just behind content but still visible */
+    pointer-events: none; /* Makes the video non-interactive */
+    overflow: hidden;
+    display: block;
+}
+
+/* Video foreground container */
+.video-foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}/* This ensures content stays on top of the video */
+.hero-content {
+    position: relative;
+    z-index: 10; /* Higher z-index to ensure it's above the video */
+}
+
+/* Editor-specific adjustments */
+.block-editor-block-list__block .acf-hero-wrapper {
+    width: 100%;
+    max-width: none;
+    position: relative; /* Ensure proper stacking context */
+}
+
+.youtube-background iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw; /* Use viewport width to ensure full width coverage */
+    height: 56.25vw; /* 16:9 aspect ratio (9/16 = 0.5625) */
+    min-height: 100%; /* Ensure it covers the height */
+    object-fit: cover; /* Cover the container */
+    max-width: none; /* Remove any max-width constraints */
+}
+
+/* For editor view - in all possible WordPress editor contexts */
+.is-editor .youtube-background iframe,
+.wp-admin .youtube-background iframe,
+.block-editor-page .youtube-background iframe,
+.edit-post-visual-editor .youtube-background iframe {
+    pointer-events: none;
+    width: 100vw !important; /* Full viewport width */
+    height: 56.25vw !important; /* 16:9 aspect ratio */
+    min-height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Special handling for WordPress block editor */
+.block-editor-block-list__block .youtube-background iframe,
+.block-editor .youtube-background iframe,
+.editor-styles-wrapper .youtube-background iframe,
+.edit-post-visual-editor .youtube-background iframe {
+    width: 100vw !important;
+    height: 56.25vw !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Force correct positioning in all contexts */
+.wp-admin .acf-hero-wrapper .youtube-background,
+.is-editor .acf-hero-wrapper .youtube-background {
+    z-index: 1 !important; /* Just behind content but still visible */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.wp-admin .acf-hero-wrapper .hero-content,
+.is-editor .acf-hero-wrapper .hero-content {
+    z-index: 2 !important; /* Just above video */
+    position: relative !important;
+}

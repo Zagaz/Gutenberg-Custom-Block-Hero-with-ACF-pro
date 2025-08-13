@@ -22,7 +22,6 @@
  * Hero Block Component
  */
 .hero-block {
-  background-color: red;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -30,12 +29,27 @@
   justify-content: center;
   height: -moz-fit-content;
   height: fit-content;
-  min-height: 300px;
+  height: 100vw;
+  padding: 30px;
+}
+@media (min-width: 450px) {
+  .hero-block {
+    height: 50vh;
+  }
+}
+@media (min-width: 768px) {
+  .hero-block {
+    height: 70vh;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-block {
+    height: 80vh;
+  }
 }
 .hero-block .hero-content {
   max-width: 800px;
   width: 100%;
-  background-color: aqua;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,16 +59,137 @@
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
+  /* Using CSS custom properties set in PHP */
+  color: var(--text-color, #000);
 }
 .hero-block .hero-content .acf-hero-subtitle {
   font-size: 2rem;
   font-weight: normal;
   margin-bottom: 20px;
+  /* Using CSS custom properties set in PHP */
+  color: var(--text-color, #000);
 }
 .hero-block .hero-content .acf-hero-description {
+  text-align: center;
   font-size: 1rem;
   font-weight: normal;
   margin-bottom: 20px;
+  /* Using CSS custom properties set in PHP */
+  color: var(--text-color, #000);
+}
+.hero-block .hero-content .acf-hero-cta-button {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+/**
+ * YouTube Background Component
+ */
+.acf-hero-wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px; /* Adjust as needed */
+  width: 100%;
+  max-width: 100vw; /* Ensure it spans the full viewport width */
+  display: flex;
+  flex-direction: column;
+}
+
+/* YouTube background should be behind the content */
+.youtube-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  z-index: 1; /* Just behind content but still visible */
+  pointer-events: none; /* Makes the video non-interactive */
+  overflow: hidden;
+  display: block;
+}
+
+/* Video foreground container */
+.video-foreground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+} /* This ensures content stays on top of the video */
+.hero-content {
+  position: relative;
+  z-index: 10; /* Higher z-index to ensure it's above the video */
+}
+
+/* Editor-specific adjustments */
+.block-editor-block-list__block .acf-hero-wrapper {
+  width: 100%;
+  max-width: none;
+  position: relative; /* Ensure proper stacking context */
+}
+
+.youtube-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw; /* Use viewport width to ensure full width coverage */
+  height: 56.25vw; /* 16:9 aspect ratio (9/16 = 0.5625) */
+  min-height: 100%; /* Ensure it covers the height */
+  -o-object-fit: cover;
+     object-fit: cover; /* Cover the container */
+  max-width: none; /* Remove any max-width constraints */
+}
+
+/* For editor view - in all possible WordPress editor contexts */
+.is-editor .youtube-background iframe,
+.wp-admin .youtube-background iframe,
+.block-editor-page .youtube-background iframe,
+.edit-post-visual-editor .youtube-background iframe {
+  pointer-events: none;
+  width: 100vw !important; /* Full viewport width */
+  height: 56.25vw !important; /* 16:9 aspect ratio */
+  min-height: 100% !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+/* Special handling for WordPress block editor */
+.block-editor-block-list__block .youtube-background iframe,
+.block-editor .youtube-background iframe,
+.editor-styles-wrapper .youtube-background iframe,
+.edit-post-visual-editor .youtube-background iframe {
+  width: 100vw !important;
+  height: 56.25vw !important;
+  min-height: 100% !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+/* Force correct positioning in all contexts */
+.wp-admin .acf-hero-wrapper .youtube-background,
+.is-editor .acf-hero-wrapper .youtube-background {
+  z-index: 1 !important; /* Just behind content but still visible */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.wp-admin .acf-hero-wrapper .hero-content,
+.is-editor .acf-hero-wrapper .hero-content {
+  z-index: 2 !important; /* Just above video */
+  position: relative !important;
 }
 
 /**
@@ -77,4 +212,86 @@
   height: max-content;
   display: flex;
   justify-content: center;
+}
+
+/**
+ * Editor-specific styles for YouTube video backgrounds
+ * These styles apply only in the WordPress editor environment
+ */
+/* WordPress editor specific adjustments */
+.edit-post-visual-editor .acf-hero-wrapper,
+.block-editor-block-list__layout .acf-hero-wrapper,
+.wp-admin-editor .acf-hero-wrapper,
+.wp-admin .acf-hero-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden;
+  /* Add a subtle overlay to help with visibility in editor */
+  /* Ensure content remains on top */
+}
+.edit-post-visual-editor .acf-hero-wrapper .youtube-background,
+.block-editor-block-list__layout .acf-hero-wrapper .youtube-background,
+.wp-admin-editor .acf-hero-wrapper .youtube-background,
+.wp-admin .acf-hero-wrapper .youtube-background {
+  width: 100%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 1 !important; /* Ensure visible but behind content */
+}
+.edit-post-visual-editor .acf-hero-wrapper .youtube-background iframe,
+.block-editor-block-list__layout .acf-hero-wrapper .youtube-background iframe,
+.wp-admin-editor .acf-hero-wrapper .youtube-background iframe,
+.wp-admin .acf-hero-wrapper .youtube-background iframe {
+  width: 100vw !important;
+  height: 56.25vw !important; /* 16:9 aspect ratio */
+  min-height: 100% !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important; /* Fill the container */
+  max-width: none !important; /* Remove any max-width constraints */
+}
+.edit-post-visual-editor .acf-hero-wrapper::after,
+.block-editor-block-list__layout .acf-hero-wrapper::after,
+.wp-admin-editor .acf-hero-wrapper::after,
+.wp-admin .acf-hero-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1); /* Lighter overlay */
+  z-index: 1; /* Between video and content */
+  pointer-events: none;
+}
+.edit-post-visual-editor .acf-hero-wrapper .hero-content,
+.block-editor-block-list__layout .acf-hero-wrapper .hero-content,
+.wp-admin-editor .acf-hero-wrapper .hero-content,
+.wp-admin .acf-hero-wrapper .hero-content {
+  position: relative;
+  z-index: 2; /* Just above video */
+}
+
+/* Fix for the block editor context */
+.wp-block .acf-hero-wrapper,
+.block-editor .acf-hero-wrapper,
+.editor-styles-wrapper .acf-hero-wrapper {
+  width: 100% !important;
+  overflow: hidden !important;
+}
+.wp-block .acf-hero-wrapper .youtube-background,
+.block-editor .acf-hero-wrapper .youtube-background,
+.editor-styles-wrapper .acf-hero-wrapper .youtube-background {
+  overflow: hidden !important;
+}
+.wp-block .acf-hero-wrapper .youtube-background iframe,
+.block-editor .acf-hero-wrapper .youtube-background iframe,
+.editor-styles-wrapper .acf-hero-wrapper .youtube-background iframe {
+  width: 300% !important;
+  min-width: 300% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }/*# sourceMappingURL=style.css.map */
