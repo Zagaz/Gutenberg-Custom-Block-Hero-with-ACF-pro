@@ -2,7 +2,7 @@
 # Gutenberg Custom Block Hero with ACF pro
  ## Description
 
-This project provides a custom WordPress block for creating a dynamic hero section using Advanced Custom Fields (ACF) Pro. The block offers flexible background options:
+This project provides a custom **WordPress** block for creating a dynamic hero section using **Advanced Custom Fields (ACF) Pro**. The block offers flexible background options:
 
 - **Color** – Set a solid background color.
 - **Image** – Select an image as the background.
