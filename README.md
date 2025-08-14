@@ -29,8 +29,8 @@ This allows you to build visually engaging hero sections tailored to your site's
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/<your-username>/<new-repo-name>.git
-   cd <new-repo-name>
+   git clone https://github.com/Zagaz/Gutenberg-Custom-Block-Hero-with-ACF-pro.git
+   cd Gutenberg-Custom-Block-Hero-with-ACF-pro
    git checkout main
    ```
 
