@@ -1,6 +1,5 @@
 <?php
 
-// Calculate the appropriate text color (black or white) based on background color
 function calculate_contrast_color($bg_color) {
     // Remove the hash if present
     $bg_color = ltrim($bg_color, '#');
@@ -17,4 +16,3 @@ function calculate_contrast_color($bg_color) {
     // Return black for light background, white for dark background
     return $luminance > 0.5 ? '#000000' : '#FFFFFF';
 }
-?>
