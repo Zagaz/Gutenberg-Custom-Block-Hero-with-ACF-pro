@@ -35,7 +35,8 @@ This allows you to build visually engaging hero sections tailored to your site's
    ```
 
 2. **Copy the plugin/theme files**
-   - Place the `<new-repo-name>` folder inside your WordPress `wp-content/plugins/` or `wp-content/themes/` directory, depending on your setup.
+   - Place the `Gutenberg-Custom-Block-Hero-with-ACF-pro` folder inside your WordPress `wp-content/plugins/` or `wp-content/themes/` directory, depending on your setup.
+   - Also,you can download the main branch .zip file and install in your WordPress instalation.
 
 3. **Install and activate ACF Pro**
    - Download ACF Pro from [https://www.advancedcustomfields.com/pro/](https://www.advancedcustomfields.com/pro/)
