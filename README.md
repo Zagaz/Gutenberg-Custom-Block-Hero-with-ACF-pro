@@ -16,7 +16,7 @@ You can also customize the following content:
 - **Title**
 - **Subtitle**
 - **Description**
-- **Link Button** (customize background color, URL, and text color)
+- **Link Button** (customize background color, URL and text color)
 
 This allows you to build visually engaging hero sections tailored to your site's needs.
 ## Requirements
