@@ -2,13 +2,25 @@
 
 /**
  * Plugin Name: ACF Block
- * Description: A simple ACF block example.
+ * Description: A dinamic hero block using ACF Pro.
  * Version: 1.0.0
  * Author: Andre Ranulfo
+ * Plugin URI:      https://github.com/Zagaz/Gutenberg-Custom-Block-Hero-with-ACF-pro
+ * Version:           1.0.0
+ * Requires at least: 5.7
+ * Requires PHP:      7.0
+ * Author:            André Ranulfo
+ * Author URI:        https://www.linkedin.com/in/andre-ranulfo/
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Update URI:        https://example.com/my-plugin/
+ * Text Domain:       acf-block-hero
+ * Domain Path:       /languages
+ * Requires Plugins:  Advanced Custom Fields PRO
+ * 
  */
 
 // You shall not pass! 
-
 if (! defined('ABSPATH')) {
     exit;
 }
@@ -30,7 +42,7 @@ function acf_hero_init()
 {
     $block_name = 'acf-hero'; // Block name (should be lowercase and without spaces)
     $block_title = 'ACF Hero';
-    $block_text_domain = 'acf-block';
+    $block_text_domain = 'acf-block-hero';
     $block_render_template = 'blocks/hero/hero.php';
 
     if (function_exists('acf_register_block_type')) {
