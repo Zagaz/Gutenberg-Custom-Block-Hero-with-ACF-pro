@@ -59,9 +59,7 @@ function acf_hero_init()
             'supports'          => array(
                 'anchor' => true,
                 'customClassName' => true,
-                'align' => true,
-                'alignWide' => true,
-                'alignText' => true,
+                
             ),
         ));
     }
