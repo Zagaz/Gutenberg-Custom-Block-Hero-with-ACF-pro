@@ -2,10 +2,12 @@
 
 
 
+add_action('acf/init', 'acf_hero_init');
+
 function acf_hero_init()
 {
     $block_name = 'acf-hero'; // Block name (should be lowercase and without spaces)
-    $block_title = 'ACF Hero Block';
+    $block_title = 'ACF Hero';
     $block_text_domain = 'acf-block-hero';
     $block_render_template = 'blocks/hero/hero.php';
 
@@ -17,15 +19,14 @@ function acf_hero_init()
             'render_template'   => plugin_dir_path(__FILE__) . $block_render_template,
             'category'          => 'formatting',
             'icon'              => 'superhero-alt',
-            'keywords'          => array('hero', 'quote', 'acf'),
+            'keywords'          => array('hero', 'quote'),
             'enqueue_style'     => plugin_dir_url(__FILE__) . 'assets/css/style.css',
             'enqueue_script'    => plugin_dir_url(__FILE__) . 'assets/js/script.js',
             'supports'          => array(
                 'anchor' => true,
-                'customClassName' => true,            
+                'customClassName' => true,
+                
             ),
         ));
     }
 }
-
-add_action('acf/init', 'acf_hero_init');
