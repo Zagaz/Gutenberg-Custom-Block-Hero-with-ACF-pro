@@ -1,4 +1,9 @@
 <?php
+//You shall not pass!
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 add_action( 'acf/include_fields', function() {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;

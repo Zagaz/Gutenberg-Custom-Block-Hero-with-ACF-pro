@@ -20,20 +20,21 @@
  * 
  */
 
-// Include ACF data to make this file standalone
-require_once __DIR__ . '/includes/acf.php';
-
 // You shall not pass! 
 if (! defined('ABSPATH')) {
     exit;
 }
 
 
-// Using ACF JSON approach for field definitions
-// Fields are stored in acf-json/group_689b72e47a74f.json
-
 // Encapsulated ACF Hero block registration
 require_once __DIR__ . '/includes/acf_hero_init.php';
 
+// Include ACF data to make this file standalone
+require_once __DIR__ . '/includes/acf-fields.php';
+
 // Calculate the appropriate text color (black or white) based on background color
 require_once __DIR__ . '/includes/calculate_contrast_color.php';
+
+// Checks if ACF pro is installed and active
+require_once __DIR__ . '/includes/acf-cheker.php';
+
