@@ -8,6 +8,7 @@ function acf_hero_init()
 {
     $block_name = 'acf-hero'; // Block name (should be lowercase and without spaces)
     $block_title = 'ACF Hero';
+    $block_description = 'A dynamic hero block using ACF Pro.';
     $block_text_domain = 'acf-block-hero';
     $block_render_template = dirname(__DIR__) . '/blocks/hero/hero.php';
 
@@ -16,11 +17,11 @@ function acf_hero_init()
         acf_register_block_type(array(
             'name'              => $block_name,
             'title'             => __($block_title, $block_text_domain),
-            'description'       => __('A custom hero block.', $block_text_domain),
+            'description'       => __($block_description, $block_text_domain),
             'render_template'   => $block_render_template,
             'category'          => 'formatting',
             'icon'              => 'superhero-alt',
-            'keywords'          => array('hero', 'quote'),
+            'keywords'          => array('acf','hero', 'quote'),
             'enqueue_style'     => $plugin_url . 'assets/css/style.css',
             'enqueue_script'    => $plugin_url . 'assets/js/script.js',
             'supports'          => array(
